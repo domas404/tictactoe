@@ -55,7 +55,7 @@ function updatePlayer(id, class_name){
 
 // changes turn and adds glow effects to players' name, to let players know
 function changeTurn(){
-    console.log(count);
+    // console.log(count);
 
     updatePlayer("player1", "player-name");
     updatePlayer("player2", "player-name");
@@ -133,7 +133,7 @@ function checkStatus(player, id){
         if(tile_status[i][2-i] == symbol) adiag++;
 
         if(row == 3 || col == 3){
-            console.log("Player " + symbol + " won.");
+            // console.log("Player " + symbol + " won.");
             winner = determineWinner(symbol, winner, row, "row"+(i+1), "col"+(i+1), "line-animation");
             
             gameEnded();
@@ -147,14 +147,14 @@ function checkStatus(player, id){
     }
     // checks if game has been won (diagonal end scenarios)
     if(diag == 3 || adiag == 3){
-        console.log("Player " + symbol + " won.");
+        // console.log("Player " + symbol + " won.");
         winner = determineWinner(symbol, winner, diag, "diag", "a-diag", "line-animation-diagonal");
 
         gameOn = false;
         gameEnded();
     }
     else if(count == 9){ // if tie
-        console.log("Tie.");
+        // console.log("Tie.");
         winner = "Tie";
         document.getElementById("reset").innerHTML = "Next match";
         document.getElementById("declare-winner").innerHTML = winner + ".";
@@ -162,7 +162,7 @@ function checkStatus(player, id){
         gameEnded();
     }
 
-    console.log("Row: " + row + "\nCol: " + col);
+    // console.log("Row: " + row + "\nCol: " + col);
 }
 
 // when game has ended
@@ -183,7 +183,7 @@ function clearBoard(){
         imageDiv = document.getElementById("image"+(i+1));
         if(imageDiv){
             imageDiv.parentNode.removeChild(imageDiv);
-            console.log(imageDiv.id);
+            // console.log(imageDiv.id);
         }
         document.getElementById("pos"+(i+1)).style.pointerEvents = "auto";
     }
@@ -208,7 +208,7 @@ const reset = document.getElementById("reset");
 reset.addEventListener("click", function(){
     clearBoard();
     if(!gameOn && whoStarted == turn){
-        console.log("Started by: " + whoStarted + ", ended by: " + turn);
+        // console.log("Started by: " + whoStarted + ", ended by: " + turn);
         changeTurn();
     }
     gameOn = true;
@@ -266,7 +266,7 @@ function displayNames(){
 
     p1_name = document.getElementById("p1-name").value;
     p2_name = document.getElementById("p2-name").value;
-    console.log(p1_name + "\n" + p2_name);
+    // console.log(p1_name + "\n" + p2_name);
 
     if(p1_name == "") p1_name = "Player1"; // default player 1 name
     if(p2_name == "") p2_name = "Player2"; // default player 2 name
